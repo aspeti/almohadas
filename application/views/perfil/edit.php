@@ -37,8 +37,7 @@
               </div>
               <?php endif;?>
               <!-- /.Alertr -->
-         
-
+        
               <!-- form start -->    
               <form action="<?php echo base_url();?>usuarios/updateprofile" method="POST">              
                 <div class="card-body">
