@@ -122,6 +122,20 @@
         }
     });
   });
+//-- -------------------------- profile---------------------------------------------------->
+
+  function deshabilitarCampos(campos) {
+    campos.forEach(function(idCampo) {
+      document.getElementById(idCampo).setAttribute("disabled", "true");
+    });
+  }
+  function habilitarCampos(campos){
+    campos.forEach(function(idCampo) {
+      document.getElementById(idCampo).removeAttribute("disabled");
+    });
+  
+  }
+
 </script>
 </body>
 </html>

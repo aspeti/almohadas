@@ -55,6 +55,31 @@
             </ul>
           </li>  
           <li class="nav-item">
+                    <a href="#" class="nav-link">                           
+                      <i class="nav-icon fas fa-cog"></i>           
+                      <p>
+                        Profile
+                        <i class="fas fa-angle-left right"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="<?php echo base_url()?>usuarios/viewprofile/<?php echo $this->session->userdata('id_usuario'); ?> " class="nav-link">
+                          <i class="fas fa-user nav-icon"></i>
+                          <p>Perfil</p>
+                        </a>
+                      </li>   
+                    </ul>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                      <a href="<?php echo base_url('usuarios/password/'.$this->session->userdata('id_usuario')); ?>" class="nav-link">
+                          <i class="fas fa-user nav-icon"></i>
+                          <p>Password</p>
+                        </a>
+                      </li>   
+                    </ul>           
+                  </li>
+          <li class="nav-item">
                       <a href="<?php echo base_url();?>#" class="nav-link">
                       <i class="fas fa-money-bill nav-icon"></i>
                       <p>Ventas</p>
