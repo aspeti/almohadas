@@ -10,7 +10,7 @@
             
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div><!--  /.container-fluid -->
     </section>
     <!-- Main content -->
     <section class="content">

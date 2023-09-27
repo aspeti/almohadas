@@ -160,7 +160,7 @@ class Usuarios extends CI_Controller {
 		echo "usuarios"; //return url to redirect
 	}
 
-	//-------------------------------PERFIL----------------------------------------------
+	//-------------------------------PERFIL---------------------------------------------
 
 
 	public function viewprofile($id){	
