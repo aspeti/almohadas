@@ -39,17 +39,29 @@ class Productos extends CI_Controller {
         $precio = $this->input->post("precio");
         $id_categoria = $this->input->post("idCategoria");
 
+		$direccionImg="/assets/img/";
+		$idProductoImg = $this->Producto_model->ultimoIdProducto();
+		$img = $direccionImg. $idProductoImg;
+
+		$imagen = "imagen";
+		$config['file_name'] = $idProductoImg;
+    	$config['allowed_types'] = "gif|jpg|jpeg|png";
+		$config['upload_path'] = './assets/img/productos';
+		$this->load->library('upload', $config);
+
 			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
 
 		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]|is_unique[producto.nombre]");
 		$this->form_validation->set_rules("precio", "Precio", "required|numeric");
+		
         
-		if($this->form_validation->run()){	
+		if($this->form_validation->run() ){	
 
 				$newProducto = array(
 					'nombre' => $nombre,
 					'descripcion'=> $descripcion,		
 					'precio'=> $precio,
+					'img'=> $img,
 					'eliminado' => "0",
 					'id_categoria' => $id_categoria,
 					'fecha_creacion' => date('Y-m-d H:i:s'),
@@ -57,6 +69,7 @@ class Productos extends CI_Controller {
 				);
 
 				if($this->Producto_model->save($newProducto)){
+					$this->upload->do_upload($imagen);
 					redirect(base_url()."productos");
 				}else{
 					$this->session->set_flashdata("Error","No se pudo guardar el registro");
@@ -143,6 +156,9 @@ class Productos extends CI_Controller {
 		$this->Producto_model->update($id, $data); //actualizamos el registro
 		echo "productos"; //return url to redirect
 	}
+
+	
+
 
 	
 
