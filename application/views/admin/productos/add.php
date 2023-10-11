@@ -44,7 +44,7 @@
          
 
               <!-- form start -->
-              <form action="<?php echo base_url();?>productos/insert" method="POST">
+              <form action="<?php echo base_url();?>productos/insert" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="nombre">Nombre *</label>
@@ -72,7 +72,11 @@
 
                       <?php endforeach?>
                     </select>  
-                  </div>            
+                  </div>
+                  <div class="form-group">
+                    <label for="archivo">Selecciona una imagen</label>
+                    <input type="file" class="form-control-file" id="imagen" name="imagen">
+                  </div>             
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
