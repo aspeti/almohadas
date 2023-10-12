@@ -80,7 +80,7 @@
               </ul>           
             </li>
           <li class="nav-item">
-                      <a href="<?php echo base_url();?>#" class="nav-link">
+                      <a href="<?php echo base_url();?>pedidos" class="nav-link">
                       <i class="fas fa-money-bill nav-icon"></i>
                       <p>Ventas</p>
                       </a>
