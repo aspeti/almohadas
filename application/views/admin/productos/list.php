@@ -38,10 +38,12 @@
                   <thead>                 
                   <tr>
                     <th>#</th>
+                    <th>codigo</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
                     <th>Categoria</th>
+                    <th>img</th>
                     <th>Acciones</th>
                   </tr>
                   </thead>
@@ -51,10 +53,12 @@
                       <?php foreach($productos as $producto):?>
                                 <tr>
                                   <td><?php echo $cont;?></td>
+                                  <td><?php echo $producto->codigo;?></td>
                                   <td><?php echo $producto->nombre;?></td>
                                   <td><?php echo $producto->descripcion;?></td>
                                   <td><?php echo $producto->precio;?></td>
                                   <td><?php echo $producto->categoria;?></td>
+                                  <td><?php echo $producto->img;?></td>
                                   <td>
                                       <div class="btn-group">
                                         <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='productos/view/'.$producto->id_producto;?>">
@@ -72,11 +76,13 @@
                   </tbody>                                 
                  
                   <tr>
-                    <th>#</th>
+                  <th>#</th>
+                    <th>codigo</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
                     <th>Categoria</th>
+                    <th>img</th>
                     <th>Acciones</th>
                   </tr>
 
