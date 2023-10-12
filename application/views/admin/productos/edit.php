@@ -44,15 +44,21 @@
          
 
               <!-- form start -->    
-              <form action="<?php echo base_url();?>productos/update" method="POST">              
+              <form action="<?php echo base_url();?>productos/update" method="POST" enctype="multipart/form-data">              
                 <div class="card-body">
                   <div class="form-group">
                     <input type="hidden" name="idProducto" value="<?php echo $producto->id_producto; ?>">
                   </div>
                   <div class="form-group">
+                    <label for="codigo">Codigo *</label>
+                    <input type="text" class="form-control <?php echo !empty(form_error("codigo")) ? 'is-invalid':' ';?>" placeholder="codigo" id="codigo" name="codigo" 
+                      value="<?php echo !empty(form_error("codigo")) ? set_value("codigo") : $producto->codigo; ?>">
+                    <?php echo form_error("codigo","<span class='help-block'>","</span>")?>
+                  </div>
+                  <div class="form-group">
                     <label for="nombre">Nombre *</label>
                     <input type="text" class="form-control <?php echo !empty(form_error("nombre")) ? 'is-invalid':'';?>" placeholder="nombre" id="nombre" name="nombre"
-                       value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $producto->nombre; ?>">
+                      value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $producto->nombre; ?>">
                     <?php echo form_error("nombre","<span class='help-block'>","</span>")?>   
                   </div>
                   <div class="form-group">
@@ -76,7 +82,11 @@
                           <?php endif;?>
                       <?php endforeach?>
                     </select>  
-                  </div>            
+                  </div>
+                  <div class="form-group">
+                    <label for="archivo">Selecciona una imagen</label>
+                    <input type="file" class="form-control-file" id="imagen" name="imagen">
+                  </div>             
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

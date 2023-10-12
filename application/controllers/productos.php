@@ -37,17 +37,30 @@ class Productos extends CI_Controller {
 		$nombre = $this->input->post("nombre");
         $descripcion = $this->input->post("descripcion");
         $precio = $this->input->post("precio");
+		$codigo = $this->input->post("codigo");	
         $id_categoria = $this->input->post("idCategoria");
 
-		$direccionImg="/assets/img/";
 		$idProductoImg = $this->Producto_model->ultimoIdProducto();
-		$img = $direccionImg. $idProductoImg;
 
 		$imagen = "imagen";
 		$config['file_name'] = $idProductoImg;
-    	$config['allowed_types'] = "gif|jpg|jpeg|png";
+    	$config['allowed_types'] = "jpg|jpeg|png";
 		$config['upload_path'] = './assets/img/productos';
+		$config['max_size']     = '1000';
+		$config['max_width'] = '1024';
+		$config['max_height'] = '1000';
+		$config['overwrite'] = TRUE;
 		$this->load->library('upload', $config);
+
+
+
+		if ($this->upload->do_upload($imagen)) {
+			// Archivo subido exitosamente
+			$file_info = $this->upload->data();			
+			$file_type = $file_info['image_type'];
+		}
+		$img = '/assets/img/productos/'.$idProductoImg.'.'.$file_type;
+		
 
 			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
 
@@ -61,6 +74,7 @@ class Productos extends CI_Controller {
 					'nombre' => $nombre,
 					'descripcion'=> $descripcion,		
 					'precio'=> $precio,
+					'codigo'=>$codigo,
 					'img'=> $img,
 					'eliminado' => "0",
 					'id_categoria' => $id_categoria,
@@ -103,8 +117,28 @@ class Productos extends CI_Controller {
         $id = $this->input->post("idProducto");
         $nombre = $this->input->post("nombre");
         $descripcion = $this->input->post("descripcion");
+		$codigo = $this->input->post("codigo");	
         $precio = $this->input->post("precio");
         $id_categoria = $this->input->post("idCategoria");
+
+
+		$config['file_name'] = $id;
+    	$config['allowed_types'] = "jpg|jpeg|png";
+		$config['upload_path'] = './assets/img/productos';
+		$config['max_size']     = '1000';
+		$config['max_width'] = '1024';
+		$config['max_height'] = '1000';
+		$config['overwrite'] = TRUE;
+		$this->load->library('upload', $config);
+
+
+		if ($this->upload->do_upload('imagen')) {
+			// Archivo subido exitosamente
+			$file_info = $this->upload->data();			
+			$file_type = $file_info['image_type'];
+		}
+		$img = '/assets/img/productos/'.$id.'.'.$file_type;
+
 
 		//echo $id." ".$nombre." ".$descripcion; //to make test	
 
@@ -126,6 +160,8 @@ class Productos extends CI_Controller {
 					'nombre' => $nombre,
 					'descripcion' => $descripcion,
 					'precio' => $precio,
+					'codigo'=>$codigo,
+					'img'=> $img,
 					'id_categoria' => $id_categoria,
 					'fecha_actualizacion' => date('Y-m-d H:i:s')			
 				);
