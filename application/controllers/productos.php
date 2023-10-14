@@ -57,9 +57,9 @@ class Productos extends CI_Controller {
 		if ($this->upload->do_upload($imagen)) {
 			// Archivo subido exitosamente
 			$file_info = $this->upload->data();			
-			$file_type = $file_info['image_type'];
+			$file_type = $file_info['file_ext'];
 		}
-		$img = '/assets/img/productos/'.$idProductoImg.'.'.$file_type;
+		$img = '/assets/img/productos/'.$idProductoImg.$file_type;
 		
 
 			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
@@ -135,7 +135,7 @@ class Productos extends CI_Controller {
 		if ($this->upload->do_upload('imagen')) {
 			// Archivo subido exitosamente
 			$file_info = $this->upload->data();			
-			$file_type = $file_info['image_type'];
+			$file_type = $file_info['file_ext'];
 		}
 		$img = '/assets/img/productos/'.$id.'.'.$file_type;
 
