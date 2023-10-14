@@ -137,7 +137,7 @@ class Productos extends CI_Controller {
 			$file_info = $this->upload->data();			
 			$file_type = $file_info['file_ext'];
 		}
-		$img = '/assets/img/productos/'.$id.'.'.$file_type;
+		$img = '/assets/img/productos/'.$id.$file_type;
 
 
 		//echo $id." ".$nombre." ".$descripcion; //to make test	
