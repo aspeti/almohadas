@@ -41,7 +41,7 @@
               <li class="nav-item">
                 <a href="<?php echo base_url();?>categorias" class="nav-link">
                   <i class="fas fa-bars nav-icon"></i>
-                  <p>Catergoria</p>
+                  <p>Categoria</p>
                 </a>
               </li>   
             </ul>
