@@ -24,12 +24,12 @@ class Pedidos extends CI_Controller {
 		$this->load->view('layouts/footer');			
 	}
 
-	public function payment()
-	{
-
+	public function payment($idventa)
+	{					
+		$data['idventa'] = $idventa;
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('pedidos/payment');
+		$this->load->view('pedidos/payment', $data);
 		$this->load->view('layouts/footer');			
 	}
 	public function report()
@@ -81,10 +81,12 @@ class Pedidos extends CI_Controller {
 			$idVenta= $this->Ventas_model->lastId();
 			$this->update_Comprobante($id_comprobante);
 			$this->save_detalle($productos_id,$idVenta,$precios,$cantidades,$importes);
+
+			
 			if($this->session->userdata('rol') == 1){
 				redirect(base_url()."pedidos/report");
 			}else{
-				redirect(base_url()."pedidos/payment");
+				redirect(base_url()."pedidos/payment/".$idVenta);
 			}
 			
 

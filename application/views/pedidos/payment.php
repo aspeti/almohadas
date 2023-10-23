@@ -33,8 +33,8 @@
             <div class="form-group">
               <label for="archivo">Realize el deposito y suba el comprobante</label>
               <input type="file" class="form-control-file" id="comprobante" name="imagen">
+              <input type="hidden" name="idventa" id="idventa" value="<?php echo $idventa; ?>">
               <br>
-
               <div class="">
                   <button type="submit" class="btn btn-success">Enviar</button>
               </div>
