@@ -22,5 +22,24 @@ class Pedidos extends CI_Controller {
 		$this->load->view('layouts/footer');			
 	}
 
+	public function payment()
+	{
+
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('pedidos/payment');
+		$this->load->view('layouts/footer');			
+	}
+	public function report()
+	{
+
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('pedidos/reporte');
+		$this->load->view('layouts/footer');			
+	}
+
+
+
 
 }

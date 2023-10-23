@@ -82,7 +82,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         
-                                        <form action="<?php echo base_url();?>movimientos/ventas/store" method="POST" class="form-horizontal" onsubmit=" return validarForm();">
+                                        <form action="<?php echo base_url();?>Pedidos/payment" method="POST" class="form-horizontal" onsubmit=" return validarForm();">
                                             
                                             <div class="form-group row">
                                                 <div class="col-md-3">

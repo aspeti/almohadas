@@ -46,9 +46,9 @@ class Productos extends CI_Controller {
 		$config['file_name'] = $idProductoImg;
     	$config['allowed_types'] = "jpg|jpeg|png";
 		$config['upload_path'] = './assets/img/productos';
-		$config['max_size']     = '1000';
-		$config['max_width'] = '1024';
-		$config['max_height'] = '1000';
+		$config['max_size']     = '2000';
+		$config['max_width'] = '2024';
+		$config['max_height'] = '2000';
 		$config['overwrite'] = TRUE;
 		$this->load->library('upload', $config);
 
@@ -125,9 +125,9 @@ class Productos extends CI_Controller {
 		$config['file_name'] = $id;
     	$config['allowed_types'] = "jpg|jpeg|png";
 		$config['upload_path'] = './assets/img/productos';
-		$config['max_size']     = '1000';
-		$config['max_width'] = '1024';
-		$config['max_height'] = '1000';
+		$config['max_size']     = '2000';
+		$config['max_width'] = '2024';
+		$config['max_height'] = '2000';
 		$config['overwrite'] = TRUE;
 		$this->load->library('upload', $config);
 
