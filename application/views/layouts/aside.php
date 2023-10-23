@@ -66,7 +66,11 @@
               <li class="nav-item">
                 <a href="<?php echo base_url();?>pedidos" class="nav-link">
                 <i class="fas fa-money-bill nav-icon"></i>
-                <p>Compras</p>
+                <?php if($this->session->userdata('rol') == 1) { ?>   
+                    <p>Ventas</p>
+                <?php } else{?>  
+                    <p>Comprar</p>
+                <?php } ?>    
                 </a>
               </li>
             <li class="nav-item">
