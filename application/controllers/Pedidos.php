@@ -34,10 +34,13 @@ class Pedidos extends CI_Controller {
 	}
 	public function report()
 	{
+		$lista = array(
+			'ventas'=> $this->Ventas_model->getAllVentas(),
+		);  
 
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('pedidos/reporte');
+		$this->load->view('pedidos/reporte', $lista);
 		$this->load->view('layouts/footer');			
 	}
 
@@ -121,6 +124,42 @@ class Pedidos extends CI_Controller {
         }
 
     }
+
+
+	public function EditarImgventa()
+	{
+		$id = $this->input->post("idventa");
+
+		$config['file_name'] = $id;
+    	$config['allowed_types'] = "jpg|jpeg|png";
+		$config['upload_path'] = './assets/img/comprobante';
+		$config['max_size']     = '2000';
+		$config['max_width'] = '2024';
+		$config['max_height'] = '2000';
+		$config['overwrite'] = TRUE;
+		$this->load->library('upload', $config);
+
+		if ($this->upload->do_upload('imagen')) {
+			// Archivo subido exitosamente
+			$file_info = $this->upload->data();			
+			$file_type = $file_info['file_ext'];
+		}
+		$img = '/assets/img/comprobante/'.$id.$file_type;
+		
+		$data = array(
+			'img'=> $img,
+			'deposito'=> "1",
+		);
+
+		if($this->Ventas_model->updateVenta($id,$data)){
+
+			redirect(base_url()."dashboard/index");
+		}else{
+			redirect(base_url()."pedidos");		
+		}
+
+	}
+
 
 
 }
