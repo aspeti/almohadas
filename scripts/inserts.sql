@@ -1,6 +1,6 @@
-insert into rol (nombre, descripcion, eliminado)values
-("admin","administrador",0),
-("cliente","cliente",0);
+insert into rol (id_rol,nombre, descripcion, eliminado)values
+(1,"admin","administrador",0),
+(2,"cliente","cliente",0);
 
 insert into usuario(fecha_creacion,eliminado,email,password,nombre,apellido,id_rol)values
 (CURDATE(),0,"admin@gmail.com",MD5("admin"),'Admin','Apellido',1),
