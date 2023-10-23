@@ -4,7 +4,7 @@ insert into rol (nombre, descripcion, eliminado)values
 
 insert into usuario(fecha_creacion,eliminado,email,password,nombre,apellido,id_rol)values
 (CURDATE(),0,"admin@gmail.com",MD5("admin"),'Admin','Apellido',1),
-(CURDATE(),0,"usuario@gmail.com",MD5("cliente"),'usuario','Vargas',2);
+(CURDATE(),0,"usuario@gmail.com",MD5("usuario"),'usuario','Vargas',2);
 
 
 insert into comprobante (nombre,cantidad,serie)values('recibo',1,'001')

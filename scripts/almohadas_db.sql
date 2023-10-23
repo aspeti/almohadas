@@ -139,6 +139,8 @@ CREATE TABLE IF NOT EXISTS `almohadas_db`.`ventas` (
   `referencia` VARCHAR(45) NULL DEFAULT NULL,
   `serie` VARCHAR(45) NULL,
   `num_documento` VARCHAR(45) NULL,
+  `img` VARCHAR(45) NULL,
+  `deposito` TINYINT(4) NULL DEFAULT NULL,
   `id_comprobante` INT NOT NULL,
   `id_usuario` INT(11) NOT NULL,
   `id_cliente` INT NULL,
@@ -149,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `almohadas_db`.`ventas` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_reserva_comprobante1`
-    FOREIGN KEY (`comprobante_id_comprobante`)
+    FOREIGN KEY (`id_comprobante`)
     REFERENCES `almohadas_db`.`comprobante` (`id_comprobante`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -168,7 +170,6 @@ CREATE TABLE IF NOT EXISTS `almohadas_db`.`detalle` (
   `precio` INT(11) NULL DEFAULT NULL,
   `cantidad` DECIMAL(6,2) NULL DEFAULT NULL,
   `importe` DECIMAL(6,2) NULL DEFAULT NULL,
-  `img` VARCHAR(45) NULL,
   `fecha_creacion` DATETIME NULL DEFAULT NULL,
   `eliminado` TINYINT(4) NULL DEFAULT 0,
   PRIMARY KEY (`id_producto`, `id_venta`),
