@@ -42,7 +42,7 @@
             <div class="col-12 col-sm-6">
               <h3 class="d-inline-block d-sm-none">LULU'S</h3>
               <div class="col-12">
-                <img src=".\assets\img\fondo.jpg" class="product-image" alt="Product Image">
+                <img src="<?php echo base_url();?>assets/img/fondo.jpg" class="product-image" alt="Product Image">
               </div>
             </div>
           </div>

@@ -41,4 +41,22 @@ class Ventas_model extends CI_Model {
     public function save_detalle($data){
         $this->db->insert('detalle',$data);
     }
+
+    public function getAllVentas(){    
+        $this->db->select("v.*, u.nombre as nombre");
+        $this->db->from("ventas v");
+        $this->db->join("usuario u", "u.id_usuario = v.id_cliente");    
+        $resultados = $this->db->get();
+        return $resultados->result();
+
+        $resultados = $this->db->get("ventas");
+        return $resultados->result();
+    }
+
+    public function updateVenta($id,$data)
+    {        
+        $this->db->where("id_venta", $id);     
+        return $this->db->update("ventas", $data);     
+    }
+
 }
