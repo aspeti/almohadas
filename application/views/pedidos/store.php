@@ -111,6 +111,7 @@
                                                     <label for="">Cliente:</label>
                                                     <?php if($this->session->userdata('rol') == 1) { ?>  
                                                     <div class="input-group">
+                                                        <input type="hidden" name="deposito" id="deposito" value="1">
                                                         <input type="hidden" name="idcliente" id="idcliente">
                                                         <input type="text" class="form-control" disabled="disabled" id="cliente">
                                                         <span class="input-group-btn">
@@ -119,8 +120,9 @@
                                                     </div><!-- /input-group -->
                                                     <?php } else{?>  
                                                       <div class="input-group">
-                                                        <input type="hidden" name="idcliente" id="idcliente">
-                                                        <input type="text" class="form-control" disabled="disabled" id="cliente">                                                        
+                                                      <input type="hidden" name="deposito" id="deposito" value="0">
+                                                        <input type="hidden" name="idcliente" id="idcliente" value="<?php echo $this->session->userdata('id_usuario');?>  ">
+                                                        <input type="text" class="form-control" disabled="disabled" id="cliente" value="<?php echo $this->session->userdata("nombre");?>">                                                       
                                                     </div><!-- /input-group -->
                                                     <?php }?>  
                                                 </div> 

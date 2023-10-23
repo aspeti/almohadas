@@ -50,7 +50,8 @@ class Pedidos extends CI_Controller {
 		$idcliente = $this->input->post("idcliente");
 		$fecha = $this->input->post("fecha");	
 		$subtotal = $this->input->post("subtotal");	
-		$total = $this->input->post("txttotal");		
+		$total = $this->input->post("txttotal");	
+		$deposito = $this->input->post("deposito");	
 
 		$id_usuario = $this->session->userdata("id_usuario");		
 
@@ -71,6 +72,7 @@ class Pedidos extends CI_Controller {
 			'fecha_entrega'=> $fecha,			
 			'subtotal'=> "0",	
 			'total'=> $total,	
+			'deposito'=> $deposito,
 			'id_usuario'=> $id_usuario					
 		);
 
@@ -79,7 +81,12 @@ class Pedidos extends CI_Controller {
 			$idVenta= $this->Ventas_model->lastId();
 			$this->update_Comprobante($id_comprobante);
 			$this->save_detalle($productos_id,$idVenta,$precios,$cantidades,$importes);
-			redirect(base_url()."pedidos/payment");
+			if($this->session->userdata('rol') == 1){
+				redirect(base_url()."pedidos/report");
+			}else{
+				redirect(base_url()."pedidos/payment");
+			}
+			
 
 		}else{
 			redirect(base_url()."pedidos");		}
@@ -107,7 +114,8 @@ class Pedidos extends CI_Controller {
 				'fecha_creacion' => date('Y-m-d H:i:s'),				
 				'eliminado' => "0"
             );
-            $this->Ventas_model->save_detalle($data);		
+            $this->Ventas_model->save_detalle($data);
+		//	$this->updateProducto($productos[$i],$cantidades[$i]);
         }
 
     }
