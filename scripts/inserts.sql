@@ -11,10 +11,6 @@ insert into usuario(id_usuario,fecha_creacion,eliminado,email,password,nombre,ap
 
 insert into comprobante (id_comprobante,nombre,cantidad,serie)values(1,'recibo',1,'001')
 
-insert into categoria(nombre, descripcion, eliminado) value
-("Comercial", "Almohadas comerciales",0), 
-("Empresarial", "Almohadas empresarial",0)
-
 
 insert into categoria(id_categoria,nombre, descripcion, eliminado) value
 (1,"Comercial", "Almohadas comerciales",0), 
