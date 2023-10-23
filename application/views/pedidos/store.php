@@ -82,8 +82,30 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         
-                                        <form action="<?php echo base_url();?>Pedidos/payment" method="POST" class="form-horizontal" onsubmit=" return validarForm();">
-                                            
+                                        <form action="<?php echo base_url();?>pedidos/agregarventa" method="POST" class="form-horizontal" onsubmit=" return validarForm();">
+                                        <div class="form-group row">                                                  
+                                                <div class="col-md-3">
+                                                    <label for="comprobante">Comprobante:</label>                                                    
+                                                    <select name="comprobante" id="comprobante" class="form-control" required>
+                                                        <option value="">Seleccione...</option> 
+                                                        <?php foreach($comprobantes as $comprobante): ?>
+                                                            <?php $dataComprobante = $comprobante->id_comprobante.'*'.$comprobante->cantidad.'*'.$comprobante->serie;?>
+                                                            <option value="<?php echo $dataComprobante;?>"><?php echo $comprobante->nombre ;?></option>  
+                                                        <?php endforeach;?>
+                                                    </select>                                                  
+                                                    <input type="hidden" id="idcomprobante" name="idcomprobante">
+                                                    <input type="hidden" id="igv">
+                                                </div>                                                
+                                                <div class="col-md-3">
+                                                    <label for="">Serie:</label>
+                                                    <input type="text" class="form-control" name="serie" id="serie" readonly>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="">Numero:</label>
+                                                    <input type="text" class="form-control" name="numero"  id="numero" readonly>
+                                                </div>
+                                                
+                                            </div>
                                             <div class="form-group row">
                                                 <div class="col-md-3">
                                                     <label for="">Cliente:</label>
@@ -104,7 +126,7 @@
                                                 </div> 
                                                 <div class="col-md-3">
                                                     <label for="">Fecha de entrega:</label>
-                                                    <input type="date" class="form-control" name="fecha" required>
+                                                    <input type="date" class="form-control" name="fecha" id="fecha" required>
                                                 </div>
                                             </div>                 
                                             <table id="tbventas" class="table table-bordered table-striped table-hover">
@@ -154,6 +176,54 @@
                     <!-- /.content -->
                 </div>
                 <!-- /.content-wrapper -->
+                <div class="modal fade" id="modal-default">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!--button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></-button-->
+                                <h4 class="modal-title">Lita de Clientes</h4>
+                            </div>
+                            <div class="modal-body">
+                                <table id="listamodal" class="table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Documento</th>
+                                            <th>Opcion</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if(!empty($clientes)):?>
+                                        <?php $cont = 1;?>
+                                        <?php foreach($clientes as $cliente):?>
+                                        <tr>
+                                            <td><?php echo $cont;?></td>
+                                            <td><?php echo $cliente->nombre." ".$cliente->apellido ;?></td>
+                                            <td><?php echo $cliente->apellido;?></td>                   
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-check-cliente" data-toggle="modal" data-target="#modal-default" value="<?php echo $dataClient = $cliente->id_usuario."*". $cliente->nombre." ". $cliente->apellido;?>">
+                                                    <span class="fa fa-check"></span>
+                                                </button>                                                
+                                            </td>  
+                                        </tr>
+                                        <?php $cont++;?>  
+                                        <?php endforeach;?>
+                                        <?php endif; ?>      
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
         </div>
         <!-- /.card-footer -->
 

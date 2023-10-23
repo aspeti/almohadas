@@ -23,6 +23,14 @@ class Usuario_model extends CI_Model {
         return $resultados->result();          
     }
 
+    public function getAllClientes()
+    {        
+        $this->db->where("eliminado","0");
+        $this->db->where("id_rol","2");
+        $resultados = $this->db->get("usuario");
+        return $resultados->result();            
+    }
+
     public function save ($data){
         return $this->db->insert("usuario",$data);
     }
