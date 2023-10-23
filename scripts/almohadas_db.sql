@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `almohadas_db`.`ventas` (
   `referencia` VARCHAR(45) NULL DEFAULT NULL,
   `serie` VARCHAR(45) NULL,
   `num_documento` VARCHAR(45) NULL,
-  `comprobante_id_comprobante` INT NOT NULL,
+  `id_comprobante` INT NOT NULL,
   `id_usuario` INT(11) NOT NULL,
   `id_cliente` INT NULL,
   PRIMARY KEY (`id_venta`),
