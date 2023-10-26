@@ -22,11 +22,38 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
+            
 
             <div class="card">
               
+            
               <!-- /.card-header -->
-              <div class="card-body">           
+              <div class="card-body"> 
+                <form action="<?php echo base_url();?>pedidos/ventasporfechas" method="POST">  
+                <div class ="col-md-6">
+                    <div class ="row">
+                      <div class="col-md-6">
+                          <label for="">Fecha de inicio:</label>
+                          <input type="date" class="form-control" name="fechaInicial" required>
+                      </div>
+                      <div class="col-md-6">
+                          <label for="">Fecha De Finalizacion:</label>
+                          <input type="date" class="form-control" name="fechaFinal" required>
+                      </div>
+                      
+                    </div>
+                      <div class="col-md-12">
+                          <label for="">&nbsp;</label>
+                          <button id="btn-Generar" type="submit" class="btn btn-block btn-primary"><span class="fa fa-plus"></span> Ver Registro por fecha</button>
+                      </div>
+                      <div class ="col-md-12" >
+                        <a href="<?php echo base_url();?>pedidos/exportar" type="button" class="btn btn-block btn-success"> 
+                          <span class="fa fa-plus"></span>  Exportar
+                        </a>
+                      </div>
+                      
+                </div> 
+                </form>       
 
                 <table id="lista" class="table table-bordered table-striped">
                   <thead>                 
