@@ -44,8 +44,16 @@
          
 
               <!-- form start -->
-              <form action="<?php echo base_url();?>productos/insert" method="POST">
+              <form action="<?php echo base_url();?>productos/insert" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
+                  <div class="form-group">
+                    <label for="codigo">Codigo *</label>
+                    <input type="text" class="form-control <?php echo !empty(form_error("codigo")) ? 'is-invalid':' ';?>" placeholder="codigo" id="codigo" name="codigo" 
+                          value="<?php echo set_value("codigo");?>">
+                    <?php echo form_error("codigo","<span class='help-block'>","</span>")?>
+                  </div>
+
+
                   <div class="form-group">
                     <label for="nombre">Nombre *</label>
                     <input type="text" class="form-control <?php echo !empty(form_error("nombre")) ? 'is-invalid':' ';?>" placeholder="nombre" id="nombre" name="nombre" 
@@ -72,7 +80,11 @@
 
                       <?php endforeach?>
                     </select>  
-                  </div>            
+                  </div>
+                  <div class="form-group">
+                    <label for="archivo">Selecciona una imagen</label>
+                    <input type="file" class="form-control-file" id="imagen" name="imagen">
+                  </div>             
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

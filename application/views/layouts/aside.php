@@ -22,43 +22,62 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">         
           <?php if($this->session->userdata('rol') == 1) { ?>  
           <li class="nav-item">
-            <a href="#" class="nav-link">                           
+            <!--<a href="#" class="nav-link">                           
               <i class="nav-icon fas fa-cog"></i>           
               <p>
                 Panel
                 <i class="fas fa-angle-left right"></i>
               </p>
-            </a>
-            <ul class="nav nav-treeview">
+            </a>-->
+            <!--<ul class="nav nav-treeview">-->
               <li class="nav-item">
                 <a href="<?php echo base_url();?>usuarios" class="nav-link">
                   <i class="fas fa-users nav-icon"></i>
                   <p>Usuarios</p>
                 </a>
               </li>   
-            </ul>
-            <ul class="nav nav-treeview">
+            <!--</ul>-->
+            <!--<ul class="nav nav-treeview">-->
               <li class="nav-item">
                 <a href="<?php echo base_url();?>categorias" class="nav-link">
                   <i class="fas fa-bars nav-icon"></i>
-                  <p>Catergoria</p>
+                  <p>Categoria</p>
                 </a>
               </li>   
-            </ul>
-            <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                        <a href="<?php echo base_url();?>productos" class="nav-link">
-                          <i class="fas fa-store nav-icon"></i>
-                          <p>Productos</p>
-                        </a>
-                      </li>   
-            </ul>
+            <!--</ul>-->
+            <!--<ul class="nav nav-treeview">-->
+              <li class="nav-item">
+                <a href="<?php echo base_url();?>productos" class="nav-link">
+                  <i class="fas fa-store nav-icon"></i>
+                  <p>Productos</p>
+                </a>
+              </li>   
+            <!--</ul>-->
           </li>  
+          <li class="nav-item">
+            <a href="<?php echo base_url();?>pedidos/report" class="nav-link">
+            <i class="fas fa-check nav-icon"></i>
+            <p>Reportes</p></p>
+            </a>
+          </li> 
+          <?php }?>      
+                   
+          <?php if($this->session->userdata('login')) { ?>   
+              <li class="nav-item">
+                <a href="<?php echo base_url();?>pedidos" class="nav-link">
+                <i class="fas fa-money-bill nav-icon"></i>
+                <?php if($this->session->userdata('rol') == 1) { ?>   
+                    <p>Ventas</p>
+                <?php } else{?>  
+                    <p>Comprar</p>
+                <?php } ?>    
+                </a>
+              </li>
             <li class="nav-item">
               <a href="#" class="nav-link">                           
                 <i class="nav-icon fas fa-cog"></i>           
                 <p>
-                  Profile
+                  Mis Datos
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -77,30 +96,8 @@
                     <p>Password</p>
                   </a>
                 </li>   
-              </ul>           
-            </li>
-          <li class="nav-item">
-                      <a href="<?php echo base_url();?>#" class="nav-link">
-                      <i class="fas fa-money-bill nav-icon"></i>
-                      <p>Ventas</p>
-                      </a>
-          </li>  
-          <li class="nav-item">
-                      <a href="<?php echo base_url();?>#" class="nav-link">
-                      <i class="fas fa-check nav-icon"></i>
-                      <p>Reportes</p></p>
-                      </a>
-          </li> 
-          <?php }?>      
-                   
-          <?php if($this->session->userdata('rol') == 2) { ?>   
-                
-                  <li class="nav-item">
-                      <a href="<?php echo base_url();?>#" class="nav-link">
-                      <i class="fas fa-shopping-basket nav-icon"></i>
-                      <p>Pedidos</p>
-                      </a>
-                  </li>   
+              </ul>          
+            </li>   
           <?php }?>     
                     
         </ul>

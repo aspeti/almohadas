@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Producto</h1>
+            <h1>Reportes</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Producto</li>
+              <li class="breadcrumb-item active">Reportes</li>
             </ol>
           </div>
         </div>
@@ -24,13 +24,7 @@
           <div class="col-12">
 
             <div class="card">
-              <div class="card-header">                
-                <div class ="col-md-1" >
-                  <a href="<?php echo base_url();?>productos/add" type="button" class="btn btn-block btn-primary"> <!-- quietar el btn-block---->
-                    <span class="fa fa-plus"></span>  Agregar
-                  </a>
-                </div>
-              </div>
+              
               <!-- /.card-header -->
               <div class="card-body">           
 
@@ -38,51 +32,47 @@
                   <thead>                 
                   <tr>
                     <th>#</th>
-                    <th>codigo</th>
                     <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>Categoria</th>
-                    <th>img</th>
+                    <th>Fecha de venta</th>
+                    <th>Total</th>
+                    <th>Num Documento</th>
                     <th>Acciones</th>
                   </tr>
                   </thead>
+                  </thead>
                   <tbody>
-                  <?php if(!empty($productos)):?>
+                  <?php if(!empty($ventas)):?>
                         <?php $cont = 1;?>
-                      <?php foreach($productos as $producto):?>
+                      <?php foreach($ventas as $venta):?>
                                 <tr>
                                   <td><?php echo $cont;?></td>
-                                  <td><?php echo $producto->codigo;?></td>
-                                  <td><?php echo $producto->nombre;?></td>
-                                  <td><?php echo $producto->descripcion;?></td>
-                                  <td><?php echo $producto->precio;?></td>
-                                  <td><?php echo $producto->categoria;?></td>
-                                  <td><?php echo $producto->img;?></td>
+                                  <td><?php echo $venta->nombre;?></td>
+                                  <td><?php echo $venta->fecha_creacion;?></td>
+                                  <td><?php echo $venta->total;?></td>
+                                  <td><?php echo $venta->num_documento;?></td>
+
                                   <td>
                                       <div class="btn-group">
-                                        <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='productos/view/'.$producto->id_producto;?>">
+                                        <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='pedidos/view/'.$venta->id_venta;?>">
                                           <span class="fa fa-search"></span>
                                         </button>
                                         <!--a class="btn btn-primary" href="#" class="btn bt-info"><span class="fa fa-eye"></span></!a-->
-                                        <a class="btn btn-warning" href="<?php echo base_url();?>productos/edit/<?php echo $producto->id_producto;?>" class="btn btn-info"><span class="fa fa-pen"></span></a>
-                                        <a class="btn btn-danger btn-remove" href="<?php echo base_url();?>productos/delete/<?php echo $producto->id_producto;?>" class="btn btn-info"><i class="fa fa-trash"></i></a>
+                                        <!-- <a class="btn btn-warning" href="<?php //echo base_url();?>productos/edit/<?php //echo $producto->id_producto;?>" class="btn btn-info"><span class="fa fa-pen"></span></a>
+                                        <a class="btn btn-danger btn-remove" href="<?php //echo base_url();?>productos/delete/<?php //echo $producto->id_producto;?>" class="btn btn-info"><i class="fa fa-trash"></i></a>-->
                                       </div>
                                   </td>  
                                 </tr>  
                         <?php $cont++;?>
                   <?php endforeach;?>
                   <?php endif; ?>                                               
-                  </tbody>                                 
+                  </tbody>                                                                 
                  
                   <tr>
                   <th>#</th>
-                    <th>codigo</th>
                     <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>Categoria</th>
-                    <th>img</th>
+                    <th>Fecha de venta</th>
+                    <th>Total</th>
+                    <th>Num Documento</th>
                     <th>Acciones</th>
                   </tr>
 
