@@ -59,4 +59,17 @@ class Ventas_model extends CI_Model {
         return $this->db->update("ventas", $data);     
     }
 
+
+    public function getAllporFecha($FechaInicial,$FechaFinal){
+
+        $this->db->select("v.*, u.nombre as nombre");
+        $this->db->from("ventas v");
+        $this->db->join("usuario u", "u.id_usuario = v.id_cliente");   
+        $this->db->where('v.fecha_creacion >=', $FechaInicial);
+        $this->db->where('v.fecha_creacion <=', $FechaFinal);
+        $this->db->group_by("v.id_venta");  
+        $resultados = $this->db->get("ventas");
+        return $resultados->result();
+    }
+
 }
