@@ -47,8 +47,8 @@
                           <button id="btn-Generar" type="submit" class="btn btn-block btn-primary"><span class="fa fa-plus"></span> Ver Registro por fecha</button>
                       </div>
                       <div class ="col-md-12" >
-                        <a href="<?php echo base_url();?>pedidos/exportar" type="button" class="btn btn-block btn-success"> 
-                          <span class="fa fa-plus"></span>  Exportar
+                        <a href="#" onclick="abrirNuevaVentana()"> 
+                          <button type="button" class="btn btn-block btn-success"> Exportar</button>
                         </a>
                       </div>
                       
@@ -141,3 +141,10 @@
         <!-- /.modal-dialog -->
   </div>
   <!-- /.modal -->
+
+<script>
+  function abrirNuevaVentana() {
+    var url = '<?php echo base_url();?>pedidos/exportar';
+    window.open(url, '_blank');
+  }
+</script>
