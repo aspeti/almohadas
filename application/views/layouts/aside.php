@@ -59,6 +59,12 @@
             <i class="fas fa-check nav-icon"></i>
             <p>Reportes</p></p>
             </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url();?>pedidos/ventas" class="nav-link">
+            <i class="fas fa-credit-card-alt nav-icon"></i>
+            <p>Ventas</p></p>
+            </a>
           </li> 
           <?php }?>      
                    
@@ -67,7 +73,7 @@
                 <a href="<?php echo base_url();?>pedidos" class="nav-link">
                 <i class="fas fa-money-bill nav-icon"></i>
                 <?php if($this->session->userdata('rol') == 1) { ?>   
-                    <p>Ventas</p>
+                    <p>Vender</p>
                 <?php } else{?>  
                     <p>Comprar</p>
                 <?php } ?>    

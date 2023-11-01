@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Reportes</h1>
+            <h1>Ventas</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Reportes</li>
+              <li class="breadcrumb-item active">Ventas</li>
             </ol>
           </div>
         </div>
@@ -29,31 +29,7 @@
             
               <!-- /.card-header -->
               <div class="card-body"> 
-                <form action="<?php echo base_url();?>pedidos/ventasporfechas" method="POST">  
-                <div class ="col-md-6">
-                    <div class ="row">
-                      <div class="col-md-6">
-                          <label for="">Fecha de inicio:</label>
-                          <input type="date" class="form-control" name="fechaInicial" required>
-                      </div>
-                      <div class="col-md-6">
-                          <label for="">Fecha De Finalizacion:</label>
-                          <input type="date" class="form-control" name="fechaFinal" required>
-                      </div>
-                      
-                    </div>
-                      <div class="col-md-12">
-                          <label for="">&nbsp;</label>
-                          <button id="btn-Generar" type="submit" class="btn btn-block btn-primary"><span class="fa fa-plus"></span> Ver Registro por fecha</button>
-                      </div>
-                      <div class ="col-md-12" >
-                        <a href="<?php echo base_url();?>pedidos/exportar" type="button" class="btn btn-block btn-success"> 
-                          <span class="fa fa-plus"></span>  Exportar
-                        </a>
-                      </div>
-                      
-                </div> 
-                </form>       
+                    
 
                 <table id="lista" class="table table-bordered table-striped">
                   <thead>                 
@@ -80,8 +56,8 @@
 
                                   <td>
                                       <div class="btn-group">
-                                        <!--<button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='pedidos/view/'.$venta->id_venta;?>">
-                                          <span class="fa fa-search"></span>-->
+                                        <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='pedidos/view/'.$venta->id_venta;?>">
+                                          <span class="fa fa-search"></span>
                                         </button>
                                         <!--a class="btn btn-primary" href="#" class="btn bt-info"><span class="fa fa-eye"></span></!a-->
                                         <!-- <a class="btn btn-warning" href="<?php //echo base_url();?>productos/edit/<?php //echo $producto->id_producto;?>" class="btn btn-info"><span class="fa fa-pen"></span></a>
