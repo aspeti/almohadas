@@ -45,8 +45,9 @@ class Pedidos extends CI_Controller {
 	}
 	public function ventas()
 	{
+ 
 		$lista = array(
-			'ventas'=> $this->Ventas_model->getAllVentas(),
+			'ventas'=> $this->Ventas_model->getVentaByDay(),
 		);  
 
 		$this->load->view('layouts/header');
