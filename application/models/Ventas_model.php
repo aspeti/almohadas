@@ -72,6 +72,17 @@ class Ventas_model extends CI_Model {
         return $resultados->result();
     }
 
+    public function getVentaByDay(){
+
+        $this->db->select("v.*, u.nombre as nombre");
+        $this->db->from("ventas v");
+        $this->db->join("usuario u", "u.id_usuario = v.id_cliente");   
+        $this->db->where('DATE(v.fecha_creacion)', 'CURDATE()', FALSE);
+        $this->db->group_by("v.id_venta");  
+        $resultados = $this->db->get("ventas");
+        return $resultados->result();
+    }
+
     public function getVentaById($id)
     {        
         $this->db->select("v.*, u.nombre as nombre");
