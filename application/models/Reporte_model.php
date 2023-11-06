@@ -8,7 +8,7 @@ class Reporte_model extends CI_Model {
         $this->db->from("ventas v");
         $this->db->join("usuario c", "c.id_usuario = v.id_cliente");    
         $this->db->where("v.eliminado","0");
-        $this->db->order_by("v.id_venta", "ASC");
+        $this->db->order_by("v.id_venta", "DESC");
         $resultados = $this->db->get();
         return $resultados->result(); 
     }

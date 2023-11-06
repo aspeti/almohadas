@@ -60,7 +60,7 @@ class Pedidos extends CI_Controller {
 		$productos_id = $this->input->post("idcodigo");		
 		$precios =      $this->input->post("precios");
 		$cantidades =   $this->input->post("cantidad");
-		$importes =     $this->input->post("txt_subtotal");
+		$importes =     $this->input->post("importes");
 
 		//echo 'sub'.$subtotal.'* total:'.$total.'* idcliente'.$idcliente.'* serie'.$serie.'* num_docu:'.$num_documento.'* id_usuario:'.$id_usuario.'* id_comprobante:'.$id_comprobante;
 			

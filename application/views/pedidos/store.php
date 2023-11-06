@@ -329,7 +329,7 @@ function getRowDetalle(id,codigo,descripcion,precio){
     html+='<td><input type="hidden" name="precios[]" value="'+precio+'"/>'+precio+'</td>';
    // html+='<td><input type="hidden" name="stock[]" value="'+stock+'"/>'+stock+'</td>';
     html+='<td><input id="cantidad_'+id+'" name="cantidad[]" type="number" value="1" min="1" max="9" onkeyup="setCantidad('+id+','+precio+')" onchange="setCantidad('+id+','+precio+')"/></td>';
-    html+='<td><input  type="text" id="txt_subtotal_'+id+'" class="txt_subtotal disable" value="'+precio+'" readonly/></td>';
+    html+='<td><input  type="text" id="txt_subtotal_'+id+'" name=importes[] class="txt_subtotal disable" value="'+precio+'" readonly/></td>';
     html+='<td><button class="btn btn-danger" type="button" onclick="eliminarDetalle('+id+')"><i class="fa fa-trash"></i> </button></td>';
     html+='</tr>';
     arr_ids.push(id);
