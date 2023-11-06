@@ -96,11 +96,6 @@ class Reportes extends CI_Controller {
 			);
 
 		}
-		
-
-
-				
-		
 
 		$this->load->view('reportes/fpdf/recibo',  $data);
 

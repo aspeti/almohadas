@@ -55,11 +55,6 @@ class Reporte_model extends CI_Model {
         return $resultados->row(); 
     }
 
-
-
-
-
-
     public function getAllDetalleById($id){          
         $this->db->select("d.*, p.nombre as producto");
         $this->db->from("detalle d");
