@@ -203,6 +203,65 @@
                                         
                                     </tbody>
                                 </table>
+                                              <!-- form start -->
+                                  <form action="<?php echo base_url();?>usuarios/insertClient" method="POST">
+                                    <div class="card-body">
+                                      <div class="form-group">
+                                        <label for="nombre">AGREGAR cLIENTE</label>
+                                        <input type="text" class="form-control <?php echo !empty(form_error("nombre")) ? 'is-invalid':' ';?>" 
+                                                placeholder="Nombre completo *" name="nombre" id="nombre" value = "<?php echo set_value("nombre");?>">
+                                                <?php echo form_error("nombre","<span class='help-block'>","</span>")?>
+                                      </div>
+                                      <!--div class="form-group">
+                                        <label for="apellido">apellido</label>
+                                        <input type="text" class="form-control <?php echo !empty(form_error("nombre")) ? 'is-invalid':' ';?>"
+                                              placeholder="Apellido" name="apellido" id="apellido" value = "<?php echo set_value("apellido");?>">
+                                              </?php echo form_error("apellido","<span class='help-block'>","</span>")?>
+                                      </!div>    
+                                      <div class="form-group">
+                                        <label for="ci">CI</label>
+                                        <input type="text" class="form-control" placeholder="Cedula de Identidad" name="ci">
+                                      </div> 
+                                      <div-- class="form-group">
+                                        <label for="direccion">Direccion *</label>
+                                        <input type="text" class="form-control </?php echo !empty(form_error("direccion")) ? 'is-invalid':' ';?>" 
+                                                placeholder="Direccion" name="direccion" id="direccion" value = "</?php echo set_value("direccion");?>">
+                                                </?php echo form_error("direccion","<span class='help-block'>","</span>")?>
+                                      </div-->       
+                                      <div class="form-group">                                 
+                                        <input type="text" class="form-control <?php echo !empty(form_error("celular")) ? 'is-invalid':' ';?>" 
+                                              placeholder="Celular *" name="celular" id="celular" value = "<?php echo set_value("celular");?>">
+                                              <?php echo form_error("celular","<span class='help-block'>","</span>")?>
+                                      </div>                   
+                                      <!--div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="text" class="form-control </?php echo !empty(form_error("email")) ? 'is-invalid':' ';?>"
+                                            placeholder="Correo electronico" name="email" id="email" value = "</?php echo set_value("email");?>">
+                                            </?php echo form_error("email","<span class='help-block'>","</span>")?>
+                                      </-div--> 
+                                      <!--div class="form-group">
+                                        <label for="password">Password *</label>
+                                        <input type="password" class="form-control </?php echo !empty(form_error("password")) ? 'is-invalid':' ';?>" 
+                                            placeholder="Constraseña" name="password" id="password" value = "</?php echo set_value("password");?>">
+                                            </?php echo form_error("password","<span class='help-block'>","</span>")?>
+                                      </!div--> 
+
+                                      <!--div class="form-group">
+                                            <label for="rol">Rol</label>
+                                            <select class="form-control select2" style="width: 100%;" name="rol">
+                                                <--option selected="selected">Cliente</--option
+                                                <option value='2'>Cliente</option>
+                                                <option value='1'>Administrador</option>      
+                                            </select>
+                                      </!div-->    
+                                      <input type="hidden" class="form-control" name="cliente" id="cliente">
+                                          
+                                    </div>
+                                    <!-- /.card-body -->
+                                    <div class="card-footer">
+                                      <button type="submit" class="btn btn-primary">Crear cliente</button>                                      
+                                    </div>
+                                  </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>

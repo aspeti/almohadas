@@ -130,6 +130,7 @@
       "info": true,
       "autoWidth": false,
       "responsive": true,
+      
 
       "language": {
             "lengthMenu": "mostrar _MENU_ registros por pagina",
@@ -144,6 +145,7 @@
             }
         }
     });
+    
   });
 //-- -------------------------- profile------------------------------------------------>
 

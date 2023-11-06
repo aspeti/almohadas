@@ -28,6 +28,37 @@ class Usuarios extends CI_Controller {
 		$this->load->view('layouts/footer');				
 	}  
 
+	public function insertClient(){
+		$nombrecompleto = $this->input->post("nombre");
+		$celular = $this->input->post("celular");
+
+		$data= preg_split('/\s+/', $nombrecompleto);
+
+		$nombre = $data[0];
+		$apellido = empty($data[1])? $data[2] : "";
+		$ci = "1111111";
+		$direccion = "Innominada";
+		$email = $nombre."@gmail.com";
+		$password = $nombre;
+		$id_rol = 2;
+
+		$newUser = array(
+			'nombre' => $nombre,
+			'apellido'=> $apellido,
+			'ci'=> $ci,
+			'direccion'=> $direccion,
+			'celular'=> $celular,
+			'email' => $email,
+			'password' => md5($password),
+			'id_rol' => $id_rol,
+			'eliminado' => "0",
+			'fecha_creacion' => date('Y-m-d H:i:s'),
+			'fecha_actualizacion' => date('Y-m-d H:i:s')
+		);
+		$this->Usuario_model->save($newUser);
+		redirect(base_url()."pedidos");
+	}
+
 	public function insert()
 	{
 		$nombre = $this->input->post("nombre");
