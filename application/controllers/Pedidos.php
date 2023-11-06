@@ -14,7 +14,7 @@ class Pedidos extends CI_Controller {
 	{
 		$lista = array(
 			'productos'=> $this->Producto_model->getAllproductos(),
-			'comprobantes'=> $this->Ventas_model->getAllComprobantes(),
+			'comprobante'=> $this->Ventas_model->getAllComprobantes(),
 			'clientes'=> $this->Usuario_model->getAllClientes(),
 		);
 		$this->load->view('layouts/header');

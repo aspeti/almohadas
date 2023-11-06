@@ -121,6 +121,29 @@
             }
         }
     });
+
+    $('#listamodal').DataTable({
+      "paging": false, 
+      "lengthChange": false,  
+      "searching": true,
+      "ordering": false,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+
+      "language": {
+            "lengthMenu": "mostrar _MENU_ registros por pagina",
+            "zeroRecords": "No se encontró nada - lo siento",
+            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No existen registros",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            "search": "Buscar",
+            "paginate" :{
+              "next": "Siguiente",
+              "previous": "Anterior"
+            }
+        }
+    });
   });
 //-- -------------------------- profile------------------------------------------------>
 
@@ -145,8 +168,8 @@
     })
 
      //-- -------------------------- fro every change on comprobante--------------------------->
-     $("#comprobante").on("change", function(){
-      option = $(this).val() // if option is changed
+     $("#fecha").on("change", function(){
+      option = $("#comprobante").val() // if option is changed  
       if( option!=""){
         infoComprobante = option.split("*"); // make split
         $("#idcomprobante").val(infoComprobante[0]); //acording to array in split 
