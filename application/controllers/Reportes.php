@@ -81,11 +81,26 @@ class Reportes extends CI_Controller {
 
 	public function comprobante($id)
 	{	
+
+		if($this->session->userdata('id_rol')==2){
+			$userId = $this->session->userdata('id_usuario');
+
+			$data = array(
+				"venta" => $this->Reporte_model->getAllVentaByUserId($userId),	
+				"ventas" => $this->Reporte_model->getAllDetalleById($id),
+			);
+		}else{
+			$data = array(
+				"venta" => $this->Reporte_model->getVentaByID($id),	
+				"ventas" => $this->Reporte_model->getAllDetalleById($id),
+			);
+
+		}
+		
+
+
 				
-		$data = array(
-			"venta" => $this->Reporte_model->getVentaByID($id),	
-			"ventas" => $this->Reporte_model->getAllDetalleById($id),
-		);	
+		
 
 		$this->load->view('reportes/fpdf/recibo',  $data);
 

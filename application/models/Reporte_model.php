@@ -34,15 +34,31 @@ class Reporte_model extends CI_Model {
     }
 
     public function getVentaByID($id){          
-        $this->db->select("v.*, c.nombre as cliente, c.num_documento as ci");
+        $this->db->select("v.*, c.nombre as cliente, c.ci as ci");
         $this->db->from("ventas v");
-        $this->db->join("cliente c", "c.id_cliente = v.id_cliente");    
+        $this->db->join("usuario c", "c.id_usuario = v.id_cliente");    
         $this->db->where("v.eliminado","0");
         $this->db->where("v.id_venta", $id);
         $this->db->order_by("v.id_venta", "ASC");
         $resultados = $this->db->get();
         return $resultados->row(); 
     }
+
+    public function getAllVentaByUserId($id){          
+        $this->db->select("v.*, c.nombre as cliente, c.ci as ci");
+        $this->db->from("ventas v");
+        $this->db->join("usuario c", "c.id_usuario = v.id_cliente");    
+        $this->db->where("v.eliminado","0");
+        $this->db->where("v.id_usuario", $id);
+        $this->db->order_by("v.id_venta", "ASC");
+        $resultados = $this->db->get();
+        return $resultados->row(); 
+    }
+
+
+
+
+
 
     public function getAllDetalleById($id){          
         $this->db->select("d.*, p.nombre as producto");
@@ -54,6 +70,8 @@ class Reporte_model extends CI_Model {
         
 
     }
+
+    
 
     public function getAllEstadisticas(){          
         $this->db->select("p.nombre as paquete, COUNT(d.cantidad) as cantidad, SUM(d.precio) as total");

@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Reportes</h1>
+            <h1>Reporte de Ventas</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -114,9 +114,7 @@
                     <td><?php echo $venta->total;?></td>                                
                     <td>
                         <div class="btn-group">
-                          <button type="button" class="btn btn-info btn-view-venta" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='view/reporte'.$venta->id_venta;?>">
-                            <span class="fa fa-search"></span>
-                          </button>                        
+                        <a class="btn btn-warning" href="<?php echo base_url();?>reportes/comprobante/<?php echo $venta->id_venta;?>" class="btn btn-info" target="_blank"><span class="fas fa-file-text" ></span></a>                       
                         </div>
                     </td>  
                   </tr>

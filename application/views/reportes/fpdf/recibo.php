@@ -11,23 +11,23 @@ class PDF extends FPDF
    // Cabecera de página
    function Header()
    {
-      $this->Image('application/views/reportes/fpdf/logoMD.png', 20, 10, 20);
+      $this->Image('application/views/reportes/fpdf/logo.png', 20, 10, 20);
 
       $this->Cell(40);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
-      $this->Cell(85, 10, utf8_decode("TIENDA DEPORTIVAS NACIONALES S.A"), 0, 0, '', 0);
+      $this->Cell(85, 10, utf8_decode("ALMOHADAS STORE S.A."), 0, 0, '', 0);
       $this->Cell(10);
       $this->Cell(85, 10, utf8_decode("NIT: 1230809123"), 0, 0, '', 0); 
       $this->Ln(5);
 
       $this->Cell(40);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
-      $this->Cell(85, 10, utf8_decode("ALMOHADAS STORE SA"), 0, 0, '', 0);
+      $this->Cell(85, 10, utf8_decode("Almohadas de esueño"), 0, 0, '', 0);
       $this->Cell(10); 
       $this->Cell(85, 10, utf8_decode("NOTA DE VENTA"), 0, 0, '', 0);
       $this->Ln(45);
 
-      $this->SetFillColor(53, 96, 69); //colorFondo
+      $this->SetFillColor(2, 146, 200); //colorFondo
       $this->SetTextColor(255, 255, 255); //colorTexto
       $this->SetDrawColor(163, 163, 163); //colorBorde
       $this->SetFont('Arial', 'B', 11);
@@ -69,7 +69,7 @@ $pdf->SetY(20);
 
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
-      $pdf->Cell(85, 10, utf8_decode("Direccion: Avenida San Martin Esquina Heroinas"), 0, 0, '', 0);
+      $pdf->Cell(85, 10, utf8_decode("Direccion:  Avenida del Ejercito #456 "), 0, 0, '', 0);
       $pdf->Ln(5);
 
       $pdf->Cell(10);  // mover a la derecha
@@ -122,11 +122,11 @@ $pdf->SetY(20);
 
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
-      $pdf->Cell(15, 10, utf8_decode("Recibo Original: MULTITUD DEPORTIVA" ), 0, 0, '', 0);
+      $pdf->Cell(15, 10, utf8_decode("Recibo Original: ALMOHADAS STORE" ), 0, 0, '', 0);
       $pdf->Ln(5);
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
-      $pdf->Cell(15, 10, utf8_decode("NIT: 1230809123 / No. Autorizacion 3423" ), 0, 0, '', 0);
+      $pdf->Cell(15, 10, utf8_decode("NIT: 1230809123 / Cel: +591 62617608" ), 0, 0, '', 0);
       $pdf->Ln(20);
 
 

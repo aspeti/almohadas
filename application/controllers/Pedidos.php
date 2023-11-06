@@ -19,8 +19,7 @@ class Pedidos extends CI_Controller {
 		);
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('pedidos/store', $lista);
-      //  $this->load->view('pedidos/tabla');
+		$this->load->view('pedidos/store', $lista);    
 		$this->load->view('layouts/footer');			
 	}
 
@@ -87,7 +86,7 @@ class Pedidos extends CI_Controller {
 
 			
 			if($this->session->userdata('rol') == 1){
-				redirect(base_url()."pedidos/report");
+				redirect(base_url()."reportes");
 			}else{
 				redirect(base_url()."pedidos/payment/".$idVenta);
 			}
@@ -153,7 +152,7 @@ class Pedidos extends CI_Controller {
 
 		if($this->Ventas_model->updateVenta($id,$data)){
 
-			redirect(base_url()."dashboard/index");
+			redirect(base_url()."pedidos/mispedidos");
 		}else{
 			redirect(base_url()."pedidos");		
 		}
@@ -196,9 +195,18 @@ class Pedidos extends CI_Controller {
 			$this->load->view('fpdf\PruebaH.php', $data);
 
 		}
+		
+	}
+	public function mispedidos()
+	{
+		$lista = array(
+			'ventas'=> $this->Ventas_model->getAllVentas(),
+		);  
 
-		
-		
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('pedidos/ventas', $lista);
+		$this->load->view('layouts/footer');			
 	}
 
 

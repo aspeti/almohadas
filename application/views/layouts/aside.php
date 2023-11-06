@@ -60,15 +60,9 @@
             <p>Reportes</p></p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="<?php echo base_url();?>pedidos/ventas" class="nav-link">
-            <i class="fas fa-credit-card-alt nav-icon"></i>
-            <p>Ventas</p></p>
-            </a>
-          </li> 
           <?php } else{?> 
             <li class="nav-item">
-                <a href="<?php echo base_url();?>pedidos/ventas" class="nav-link">
+                <a href="<?php echo base_url();?>pedidos/mispedidos" class="nav-link">
                 <i class="fas fa-credit-card-alt nav-icon"></i>
                 <p>Mis pedidos</p></p>
                 </a>
