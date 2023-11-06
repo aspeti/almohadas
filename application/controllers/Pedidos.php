@@ -43,24 +43,6 @@ class Pedidos extends CI_Controller {
 		$this->load->view('pedidos/reporte', $lista);
 		$this->load->view('layouts/footer');			
 	}
-	public function ventas()
-	{
- 
-		$lista = array(
-			'ventas'=> $this->Ventas_model->getVentaByDay(),
-		);  
-
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/aside');
-		$this->load->view('pedidos/ventas', $lista);
-		$this->load->view('layouts/footer');			
-	}
-	public function view($id){		
-		$data = array(
-			'venta' => $this ->Ventas_model->getVentaById($id),
-		);		
-		$this->load->view("pedidos/view",$data);
-	}
 
 
 	public function agregarventa()
